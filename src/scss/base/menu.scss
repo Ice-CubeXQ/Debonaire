@@ -5,21 +5,26 @@
 	// .menu__body
 	&__body {
 		@media (max-width: $mobile) {
+			background-color: #fff;
 			position: fixed;
 			width: 100%;
 			height: 100%;
 			left: -100%;
 			top: 0;
 			overflow: auto;
-			padding: toRem(50) toRem(15) toRem(15) toRem(30);
+			padding-top: toRem(110);
+			padding-bottom: toRem(30);
+			@include adaptiveValue("padding-left", 50, 15);
+			@include adaptiveValue("padding-right", 50, 15);
 			transition: left 0.3s;
 			&::before {
 				content: "";
 				position: fixed;
 				width: 100%;
-				height: toRem(70);
+				height: toRem(106);
 				left: -100%;
 				top: 0;
+				background-color: #fff;
 				transition: left 0.3s;
 				z-index: 2;
 			}
@@ -28,6 +33,12 @@
 				&::before {
 					left: 0;
 				}
+			}
+		}
+		@media (max-width: toEm(640)) {
+			padding-top: toRem(90);
+			&::before {
+				height: toRem(50);
 			}
 		}
 	}
@@ -63,11 +74,11 @@
 		&::after {
 			content: "";
 			transition: all 0.3s ease 0s;
-			right: 0;
+			left: 0;
 			position: absolute;
 			width: 100%;
 			height: toRem(2);
-			background-color: #000;
+			background-color: #fff;
 		}
 		&::before {
 			top: 0;
@@ -79,6 +90,11 @@
 			top: calc(50% - toRem(1));
 		}
 		.menu-open & {
+			span,
+			&::before,
+			&::after {
+				background-color: #000;
+			}
 			span {
 				width: 0;
 			}

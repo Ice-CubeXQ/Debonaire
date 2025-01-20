@@ -1,1 +1,36 @@
 // Заголовки, загальні БЕМ блоки та інше...
+
+//Кнопка действия
+.book {
+    letter-spacing: toRem(-0.4);
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    padding-top: toRem(5);
+    padding-bottom: toRem(5);
+    padding-left: toRem(3);
+    padding-right: toRem(3);
+    line-height: 1.31; /* 21/16 */
+    span {
+        position: relative;
+        z-index: 2;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #f95454;
+        height: toRem(2);
+        width: 100%;
+        transition: all 0.3s;
+    }
+    @media (any-hover: hover) {
+        &:hover {
+            &::after {
+                top: 0;
+                height: 100%;
+            }
+        }
+    }
+}
