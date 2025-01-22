@@ -36,7 +36,7 @@ import * as flsFunctions from "./files/functions.js";
 // flsFunctions.addTouchClass();
 
 /* Добавление loaded для HTML после полной загрузки страницы */
-// flsFunctions.addLoadedClass();
+flsFunctions.addLoadedClass();
 
 /* Модуль для работы с меню (Бургер) */
 flsFunctions.menuInit();
@@ -104,7 +104,7 @@ flsFunctions.menuInit();
 Модуль пралакса мышью
 Документация: https://template.fls.guru/template-docs/modul-animacii-parallaks-obektov-pri-dvizhenii-myshi.html
 */
-// import './libs/parallax-mouse.js'
+// import "./libs/parallax-mouse.js";
 
 // ========================================================================================================================================================================================================================================================
 // Робота с формами ========================================================================================================================================================================================================================================================
@@ -194,7 +194,7 @@ flsForms.formFieldsInit({
 // Наблюдатель за объектами с атрибутом data-watch
 // Документация: https://template.fls.guru/template-docs/modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html
 // Сніппет(HTML):
-// import './libs/watcher.js'
+import "./libs/watcher.js";
 
 // Модуль поэкранной прокрутки
 // Документация: https://template.fls.guru/template-docs/modul-poekrannoj-prokrutki-stranicy-fullpage.html
@@ -204,7 +204,7 @@ flsForms.formFieldsInit({
 // Модуль параллакса
 // Документация: https://template.fls.guru/template-docs/paralaks-pri-skroli.html
 // Сніппет(HTML):
-// import './libs/parallax.js'
+import "./libs/parallax.js";
 
 // Функции работы скролом
 import * as flsScroll from "./files/scroll/scroll.js";
