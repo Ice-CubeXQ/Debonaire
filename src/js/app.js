@@ -215,7 +215,7 @@ import * as flsScroll from "./files/scroll/scroll.js";
 
 // Функционал добавления классов к хедеру во время прокрутки
 // Документация: https://template.fls.guru/template-docs/modul-dobavleniya-klassov-k-shapke-pri-prokrutke-stranicy.html
-// flsScroll.headerScroll();
+flsScroll.headerScroll();
 
 // Анимация цифрового счетчика.
 // Документация: https://template.fls.guru/template-docs/modul-animacii-cifrovogo-lichilnika.html

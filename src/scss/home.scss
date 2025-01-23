@@ -7,68 +7,69 @@
 
 .hero {
     padding-top: toRem(65);
-    padding-bottom: toRem(143);
-    @media (max-width: toEm(599.98)) {
-        padding-top: toRem(20);
-        padding-bottom: toRem(40);
-    }
+    padding-bottom: toRem(65);
+    // min-height: 100svh;
+    display: flex;
+    align-items: center;
     // .hero__container
     &__container {
+        flex-grow: 1;
     }
     // .hero__body
     &__body {
         max-width: toRem(955);
         margin: 0 auto;
         position: relative;
-
         @media (min-width: toEm(600)) {
             display: grid;
             align-items: start;
             grid-template-columns: 41.884817% 31.099476% auto;
         }
     }
-    // .hero__title
-    &__title {
-        font-family: "Lexend Deca";
-        @include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
-        font-style: normal;
-        line-height: 1.33; /* 48/36 */
-        letter-spacing: toRem(-1.5);
-        color: #fff;
+    // .hero__title-item
+    &__title-item {
         position: relative;
         z-index: 3;
-        @media (min-width: toEm(600)) {
-            max-width: toRem(400);
-            padding-top: 10.893246%; /* 50/459 */
-        }
         @media (max-width: toEm(599.98)) {
             &:not(:last-child) {
                 margin-bottom: toRem(20);
             }
         }
-
+    }
+    // .hero__title
+    &__title {
+        @include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
+        @media (min-width: toEm(600)) {
+            max-width: toRem(400);
+            padding-top: 10.893246%; /* 50/459 */
+        }
         // Anim
         opacity: 0;
         transform: translate(0, 20%);
         ._watcher-view & {
             transform: translate(0, 0);
-            transition: all 1s 0.5s;
+            transition:
+                transform 1s 0.5s,
+                opacity 1s 0.5s;
             opacity: 1;
         }
     }
     // .hero__media
     &__media {
         position: relative;
-
         @media (min-width: toEm(600)) {
             margin-left: toRem(-115);
         }
-
         @media (max-width: toEm(599.98)) {
             &:not(:last-child) {
                 margin-bottom: toRem(20);
             }
         }
+    }
+    // .hero__main-image-item
+    &__main-image-item {
+        position: relative;
+        z-index: 2;
     }
     // .hero__main-image
     &__main-image {
@@ -77,34 +78,41 @@
         height: 100%;
         object-fit: cover;
         border-radius: toRem(2.7);
-        position: relative;
-        z-index: 2;
 
         // Anim
         opacity: 0;
-        transform: translate(0px, 5%);
+        transform: translate(0, 5%);
         ._watcher-view & {
             transform: translate(0px, 0px);
             transition: all 1s 0.1s;
             opacity: 1;
         }
     }
-
     // .hero__content
     &__content {
+        // margin-left: toRem(-65);
         padding-top: toRem(8);
-
         @media (max-width: toEm(599.98)) {
             display: flex;
-
             gap: toRem(20);
         }
     }
-
-    // .hero__circle-image
-    &__circle-image {
+    // .hero__circle-image-item
+    &__circle-image-item {
         position: relative;
         z-index: 3;
+        @media (min-width: toEm(600)) {
+            &:not(:last-child) {
+                margin-bottom: toRem(30);
+            }
+        }
+        @media (max-width: toEm(599.98)) {
+            flex-shrink: 0;
+            flex-basis: toRem(100);
+        }
+    }
+    // .hero__circle-image
+    &__circle-image {
         aspect-ratio: 1 / 1;
         width: 100%;
         height: 100%;
@@ -112,87 +120,95 @@
         object-fit: cover;
         border-radius: 50%;
         overflow: hidden;
-
         @media (min-width: toEm(600)) {
-            &:not(:last-child) {
-                margin-bottom: toRem(30);
-            }
-            transform: translate(toRem(-65), 0px) scale(0);
+            transform: translate(toRem(-65), 0) scale(0);
             ._watcher-view & {
-                transform: translate(toRem(-65), 0px) scale(1);
+                transform: translate(toRem(-65), 0) scale(1);
                 transition: all 1s 1.5s;
             }
         }
-
         @media (max-width: toEm(599.98)) {
-            flex-shrink: 0;
-            flex-basis: toRem(100);
+            transform: scale(0);
+            ._watcher-view & {
+                transform: scale(1);
+                transition: all 1s 1.5s;
+            }
         }
     }
-
-    // .hero__deco
-    &__deco {
+    // .hero__deco-item
+    &__deco-item {
         position: absolute;
-        transform: scale(0);
-        // .hero__deco--one
+        // .hero__deco-item--one
         &--one {
             max-width: 56.553398%; /* 233/412 */
             aspect-ratio: 233 / 195;
             top: -16.557734%; /* 76/459 */
             right: -26.699029%; /* 110/412 */
-            transform-origin: left bottom;
-            transform: scale(0) rotate(-20deg);
-            ._watcher-view & {
-                transform: scale(1) rotate(0deg);
-                transition: all 1.5s 1s;
+            .hero__deco {
+                transform-origin: left bottom;
+                transform: scale(0) rotate(-20deg);
+                ._watcher-view & {
+                    transform: scale(1) rotate(0deg);
+                    transition: all 1.5s 1s;
+                }
             }
         }
-        // .hero__deco--two
         &--two {
-            max-width: 58.009709%; /* 239/412 */
+            max-width: 58.009709%;
             aspect-ratio: 239 / 278;
-            bottom: -31.154684%; /* 143/459 */
-            right: -21.116505%; /* 87/412 */
-            transform-origin: 0 0;
-            transform: scale(0) rotate(20deg);
-            ._watcher-view & {
-                transform: scale(1) rotate(0deg);
-                transition: all 1.5s 1s;
+            bottom: -31.154684%;
+            right: -21.116505%;
+            .hero__deco {
+                transform-origin: 0 0;
+                transform: scale(0) rotate(20deg);
+                ._watcher-view & {
+                    transform: scale(1);
+                    transition: all 1.5s 1s;
+                }
             }
         }
     }
-    // .hero__figure
-    &__figure {
-        position: absolute;
+    // .hero__deco
+    &__deco {
+        width: 100%;
+        height: 100%;
+        transform: scale(0);
+    }
+    // .hero__figure-item
+    &__figure-item {
         aspect-ratio: 197 / 197;
-        max-width: 47.815534%; /* 197/412 */
+        position: absolute;
         bottom: -12.418301%; /* 57/459 */
         left: -21.84466%; /* 90/412 */
+        max-width: 47.815534%; /* 197/412 */
+    }
+    // .hero__figure
+    &__figure {
         transform-origin: top right;
         transform: scale(0) rotate(-20deg);
-
         ._watcher-view & {
             transform: scale(1) rotate(0deg);
             transition: all 1.5s 1s;
         }
     }
+    // .hero__text-item
+    &__text-item {
+    }
     // .hero__text
     &__text {
-        line-height: 1.5; /* 24/16 */
         @media (min-width: toEm(600)) {
-            max-width: toRem(230);
             padding-left: 15.652174%; /* 36/230 */
+            max-width: toRem(230);
         }
         @media (max-width: toEm(599.98)) {
             align-self: center;
         }
-
         // Anim
         opacity: 0;
         transform: translate(-100%, 0px);
         ._watcher-view & {
-            opacity: 1;
             transform: translate(0px, 0px);
+            opacity: 1;
             transition: all 1s 0.7s;
         }
     }

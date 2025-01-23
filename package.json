@@ -6,6 +6,7 @@
 	"private": true,
 	"license": "",
 	"type": "module",
+	"homepage": "https://github.com/Ice-CubeXQ/Debonaire",
 	"scripts": {
 		"start": "npm i --legacy-peer-deps",
 		"dev": "gulp && webpack serve --progress -c config/webpack.dev.js",
@@ -13,6 +14,7 @@
 		"sprite": "gulp sprite",
 		"fonts": "gulp fonts --rewrite",
 		"deploy": "gulp deployFTP --build",
+		"deploy-gh":"gh-pages -d dist",
 		"zip": "gulp deployZIP --build",
 		"devbuild": "gulp build --build --nowebp",
 		"noimgbuild": "gulp build --build --noimgopt",
@@ -38,6 +40,7 @@
 		"eslint-plugin-react-refresh": "latest",
 		"file-include-webpack-plugin-replace": "latest",
 		"file-loader": "^6.2.0",
+		"gh-pages": "^6.3.0",
 		"gulp": "latest",
 		"gulp-autoprefixer": "latest",
 		"gulp-clean-css": "latest",
