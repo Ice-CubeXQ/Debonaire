@@ -1,5 +1,15 @@
 // Заголовки, загальні БЕМ блоки та інше...
-
+.title {
+    color: #fff;
+    font-family: "Lexend Deca";
+    @include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: toRem(-1.5);
+}
+.text {
+    line-height: 150%; /* 24/16 */
+}
 //Кнопка действия
 .book {
     letter-spacing: toRem(-0.4);

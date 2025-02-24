@@ -2,6 +2,9 @@
     // .page__hero
     &__hero {
     }
+    // .page__focused
+    &__focused {
+    }
 }
 //====================================================================================================
 
@@ -38,7 +41,6 @@
     }
     // .hero__title
     &__title {
-        @include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
         @media (min-width: toEm(600)) {
             max-width: toRem(400);
             padding-top: 10.893246%; /* 50/459 */
@@ -215,3 +217,114 @@
 }
 
 //====================================================================================================
+
+.focused {
+    // padding-bottom: toRem(180);
+    padding-bottom: toRem(40);
+    position: relative;
+    // .focused__container
+    &__container {
+    }
+    // .focused__content
+    &__content {
+        position: relative;
+
+        max-width: toRem(1240);
+        margin: 0 auto;
+
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        @include adaptiveValue("column-gap", 80, 25, 0, $containerWidth, 991.98);
+        row-gap: toRem(50);
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
+    }
+    &__picture {
+        position: relative;
+        &--start {
+            max-width: toRem(312);
+        }
+        &--end {
+            max-width: toRem(365);
+            align-self: flex-end;
+            @media (min-width: $tablet) {
+                transform: translate(0px, 32.075472%); /* 170/530 */
+            }
+        }
+    }
+    // .focused__image
+    &__image {
+        border-radius: toRem(3);
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+    }
+    // .focused__body
+    &__body {
+        @include adaptiveValue("padding-top", 140, 20);
+        position: relative;
+        z-index: 2;
+    }
+    // .focused__title
+    &__title {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 20, 10);
+        }
+    }
+    // .focused__text
+    &__text {
+        max-width: toRem(390);
+        > p {
+            &:not(:last-child) {
+                margin-bottom: toRem(10);
+            }
+        }
+    }
+
+    // .focused__decor-items
+    &__decor-items {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+    // .focused__decore-item
+    &__decore-item {
+        position: absolute;
+        stroke-dasharray: 1500;
+        stroke-dashoffset: 1500;
+        &._watcher-view {
+            transition: all 2s linear 0.2s;
+            stroke-dashoffset: 0;
+        }
+        &--start {
+            left: 0;
+            bottom: 0;
+            transform: translate(-47.976879%, 31.578947%);
+            width: 110.897436%; /* 346/312 */
+            aspect-ratio: 346 / 342;
+            &._watcher-view {
+                // stroke-dasharray: 0;
+            }
+        }
+        &--end {
+            left: 0;
+            top: 0;
+            transform: translate(-66.260163%, 21.95122%);
+            width: 134.794521%; /* 492/365 */
+            aspect-ratio: 492 / 369;
+            &._watcher-view {
+                // stroke-dasharray: 0;
+            }
+        }
+    }
+    // .focused__decor-value
+    &__decor-value {
+        width: 100%;
+        height: 100%;
+    }
+}
