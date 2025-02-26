@@ -6,6 +6,10 @@
     font-style: normal;
     line-height: 1.33;
     letter-spacing: toRem(-1.5);
+    &--big {
+        @include adaptiveValue("font-size", 60, 36, 0, 1026, 320);
+        line-height: 1.1;
+    }
 }
 .text {
     line-height: 150%; /* 24/16 */

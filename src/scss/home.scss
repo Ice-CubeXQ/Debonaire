@@ -5,13 +5,16 @@
     // .page__focused
     &__focused {
     }
+    // .page__love
+    &__love {
+    }
 }
 //====================================================================================================
 
 .hero {
     padding-top: toRem(65);
     padding-bottom: toRem(65);
-    // min-height: 100svh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     // .hero__container
@@ -219,7 +222,6 @@
 //====================================================================================================
 
 .focused {
-    // padding-bottom: toRem(180);
     padding-bottom: toRem(40);
     position: relative;
     // .focused__container
@@ -237,30 +239,36 @@
         justify-content: space-between;
         @include adaptiveValue("column-gap", 80, 25, 0, $containerWidth, 991.98);
         row-gap: toRem(50);
-        @media (max-width: $tablet) {
+        @media (max-width: $mobile) {
             flex-direction: column;
+            align-items: center;
         }
     }
     &__picture {
         position: relative;
+        width: 100%;
         &--start {
-            max-width: toRem(312);
+            @media (min-width: toEm(600)) {
+                max-width: toRem(312);
+            }
         }
         &--end {
-            max-width: toRem(365);
-            align-self: flex-end;
             @media (min-width: $tablet) {
+                align-self: flex-end;
                 transform: translate(0px, 32.075472%); /* 170/530 */
+            }
+            @media (min-width: toEm(600)) {
+                max-width: toRem(365);
             }
         }
     }
     // .focused__image
     &__image {
-        border-radius: toRem(3);
-        overflow: hidden;
+        border-radius: toRem(5);
+        width: 100%;
+
         position: relative;
         z-index: 2;
-        width: 100%;
     }
     // .focused__body
     &__body {
@@ -276,11 +284,14 @@
     }
     // .focused__text
     &__text {
-        max-width: toRem(390);
         > p {
             &:not(:last-child) {
                 margin-bottom: toRem(10);
             }
+        }
+
+        @media (min-width: $mobile) {
+            max-width: toRem(390);
         }
     }
 
@@ -326,5 +337,102 @@
     &__decor-value {
         width: 100%;
         height: 100%;
+    }
+}
+//========================================================================================================================================================
+
+.love {
+    background-color: #c5cebd;
+    padding-block: toRem(150);
+    // .love__content
+    &__content {
+        max-width: toRem(1440);
+        margin: 0 auto;
+
+        display: flex;
+        align-items: flex-start;
+    }
+    // .love__picture
+    &__picture {
+        flex: 1 1 38.75%; /* 558/1440 */
+        position: relative;
+    }
+    // .love__image
+    &__image {
+        min-width: 100%;
+        border-radius: toRem(5);
+        position: relative;
+        z-index: 2;
+    }
+
+    // .love__item-decor-picture
+    &__item-decor-picture {
+        width: 100%;
+        height: 100%;
+    }
+
+    // .love__decor-picture
+    &__decor-picture {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        max-width: toRem(223);
+        aspect-ratio: 223 / 234;
+        transform: translate(53.811659%, 61.538462%);
+    }
+    // .love__body
+    &__body {
+        flex: 1 1 34.17%;
+        padding: 0 toRem(55);
+        position: relative;
+        z-index: 5;
+        @include adaptiveValue("padding-top", 160, 0);
+    }
+    // .love__title
+    &__title {
+        margin-left: toRem(-120);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 42, 20);
+        }
+    }
+    &__text {
+        max-width: toRem(310);
+    }
+    // .love__decor
+    &__decor {
+        flex: 0 1 27.083333%; /* 390/1440 */
+    }
+}
+
+.decor-love {
+    @include adaptiveValue("padding-top", 235, 0);
+
+    // .decor-love__body
+    &__body {
+        position: relative;
+    }
+
+    // .decor-love__line-item
+    &__line-item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-width: toRem(603);
+        aspect-ratio: 603 / 400;
+    }
+    // .decor-love__line
+    &__line {
+        width: 100%;
+        height: 100%;
+    }
+    // .decor-love__hair
+    &__hair {
+        max-width: 100%;
+        border-radius: 50%;
+    }
+    // .decor-love__dryer
+    &__dryer {
+        max-width: 100%;
     }
 }
