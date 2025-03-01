@@ -8,9 +8,17 @@
     // .page__love
     &__love {
     }
+    // .page__services
+    &__services {
+    }
+    // .page__passion
+    &__passion {
+    }
+    // .page__best
+    &__best {
+    }
 }
 //====================================================================================================
-
 .hero {
     padding-top: toRem(65);
     padding-bottom: toRem(65);
@@ -44,6 +52,7 @@
     }
     // .hero__title
     &__title {
+        @include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
         @media (min-width: toEm(600)) {
             max-width: toRem(400);
             padding-top: 10.893246%; /* 50/459 */
@@ -218,12 +227,10 @@
         }
     }
 }
-
 //====================================================================================================
-
 .focused {
-    padding-bottom: toRem(40);
     position: relative;
+    padding-bottom: toRem(40);
     // .focused__container
     &__container {
     }
@@ -237,8 +244,9 @@
         display: flex;
         align-items: start;
         justify-content: space-between;
-        @include adaptiveValue("column-gap", 80, 25, 0, $containerWidth, 991.98);
         row-gap: toRem(50);
+        @include adaptiveValue("column-gap", 80, 25, 0, $containerWidth, 991.98);
+
         @media (max-width: $mobile) {
             flex-direction: column;
             align-items: center;
@@ -249,16 +257,16 @@
         width: 100%;
         &--start {
             @media (min-width: toEm(600)) {
-                max-width: toRem(312);
+                flex-basis: toRem(312); /* 312/1240 */
             }
         }
         &--end {
-            @media (min-width: $tablet) {
+            @media (min-width: $mobile) {
                 align-self: flex-end;
                 transform: translate(0px, 32.075472%); /* 170/530 */
             }
             @media (min-width: toEm(600)) {
-                max-width: toRem(365);
+                flex-basis: toRem(365); /* 365/1240 */
             }
         }
     }
@@ -266,7 +274,6 @@
     &__image {
         border-radius: toRem(5);
         width: 100%;
-
         position: relative;
         z-index: 2;
     }
@@ -278,6 +285,7 @@
     }
     // .focused__title
     &__title {
+        @include adaptiveValue("font-size", 36, 24, 0, 1240, 320);
         &:not(:last-child) {
             @include adaptiveValue("margin-bottom", 20, 10);
         }
@@ -289,12 +297,10 @@
                 margin-bottom: toRem(10);
             }
         }
-
         @media (min-width: $mobile) {
             max-width: toRem(390);
         }
     }
-
     // .focused__decor-items
     &__decor-items {
         position: absolute;
@@ -303,33 +309,31 @@
         left: 0;
         top: 0;
     }
-    // .focused__decore-item
-    &__decore-item {
+    // .focused__decor-item
+    &__decor-item {
         position: absolute;
         stroke-dasharray: 1500;
         stroke-dashoffset: 1500;
         &._watcher-view {
-            transition: all 2s linear 0.2s;
+            transition: all 2s linear 0.1s;
             stroke-dashoffset: 0;
         }
         &--start {
             left: 0;
             bottom: 0;
-            transform: translate(-47.976879%, 31.578947%);
+            transform: translate(-47.976879%, 31.578947%); /* 108/342 */
             width: 110.897436%; /* 346/312 */
             aspect-ratio: 346 / 342;
             &._watcher-view {
-                // stroke-dasharray: 0;
             }
         }
         &--end {
             left: 0;
             top: 0;
-            transform: translate(-66.260163%, 21.95122%);
+            transform: translate(-66.260163%, 21.95122%); /* 81/369 */
             width: 134.794521%; /* 492/365 */
             aspect-ratio: 492 / 369;
             &._watcher-view {
-                // stroke-dasharray: 0;
             }
         }
     }
@@ -340,10 +344,10 @@
     }
 }
 //========================================================================================================================================================
-
 .love {
     background-color: #c5cebd;
-    padding-block: toRem(150);
+    @include adaptiveValue("padding-top", 150, 40);
+    @include adaptiveValue("padding-bottom", 150, 40);
     // .love__content
     &__content {
         max-width: toRem(1440);
@@ -351,88 +355,116 @@
 
         display: flex;
         align-items: flex-start;
+
+        @media (max-width: $mobile) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
     }
     // .love__picture
     &__picture {
-        flex: 1 1 38.75%; /* 558/1440 */
         position: relative;
+        @media (min-width: $mobile) {
+            flex: 0 1 38.75%; /* 558/1440 */
+        }
     }
     // .love__image
     &__image {
-        min-width: 100%;
+        max-width: 100%;
         border-radius: toRem(5);
         position: relative;
         z-index: 2;
     }
-
+    // .love__decor-picture
+    &__decor-picture {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        max-width: toRem(223);
+        aspect-ratio: 223 / 234;
+        transform: translate(53.811659%, 61.538462%); /* 120/223 */
+    }
     // .love__item-decor-picture
     &__item-decor-picture {
         width: 100%;
         height: 100%;
     }
 
-    // .love__decor-picture
-    &__decor-picture {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-
-        max-width: toRem(223);
-        aspect-ratio: 223 / 234;
-        transform: translate(53.811659%, 61.538462%);
-    }
     // .love__body
     &__body {
-        flex: 1 1 34.17%;
-        padding: 0 toRem(55);
+        @include adaptiveValue("padding-left", 55, 15);
+        @include adaptiveValue("padding-right", 55, 15);
+        @include adaptiveValue("padding-top", 160, 0);
+
         position: relative;
         z-index: 5;
-        @include adaptiveValue("padding-top", 160, 0);
+        @media (min-width: $mobile) {
+            flex: 1 1 34.17%;
+        }
     }
     // .love__title
     &__title {
-        margin-left: toRem(-120);
         &:not(:last-child) {
             @include adaptiveValue("margin-bottom", 42, 20);
         }
+        @media (min-width: $tablet) {
+            margin-left: toRem(-120);
+        }
     }
+    // .love__text
     &__text {
-        max-width: toRem(310);
+        @media (min-width: $mobile) {
+            max-width: toRem(310);
+        }
     }
     // .love__decor
     &__decor {
-        flex: 0 1 27.083333%; /* 390/1440 */
     }
 }
-
 .decor-love {
-    @include adaptiveValue("padding-top", 235, 0);
-
-    // .decor-love__body
-    &__body {
-        position: relative;
-    }
-
-    // .decor-love__line-item
-    &__line-item {
-        position: absolute;
-        left: 0;
-        top: 0;
-        max-width: toRem(603);
-        aspect-ratio: 603 / 400;
-    }
-    // .decor-love__line
-    &__line {
-        width: 100%;
-        height: 100%;
-    }
-    // .decor-love__hair
-    &__hair {
-        max-width: 100%;
-        border-radius: 50%;
-    }
-    // .decor-love__dryer
-    &__dryer {
-        max-width: 100%;
+    display: none;
+    @media (min-width: $tablet) {
+        display: block;
+        @include adaptiveValue("padding-top", 235, 0);
+        // .decor-love__body
+        &__body {
+            position: relative;
+        }
+        // .decor-love__line-item
+        &__line-item {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 134.615385%; /* 525/390 */
+            aspect-ratio: 525 / 531;
+        }
+        // .decor-love__line
+        &__line {
+            width: 100%;
+            height: 100%;
+            stroke-dasharray: 1800;
+            stroke-dashoffset: 1800;
+            &._watcher-view {
+                transition: all 1.5s linear 0.1s;
+                stroke-dashoffset: 0;
+            }
+        }
+        // .decor-love__hair-item
+        &__hair-item {
+            transform: translate(50%, 0px);
+        }
+        // .decor-love__hair
+        &__hair {
+            width: 100%;
+            border-radius: 50%;
+        }
+        // .decor-love__dryer-item
+        &__dryer-item {
+            transform: translate(0, -23.75%); /* 95/400 */
+        }
+        // .decor-love__dryer
+        &__dryer {
+            max-width: 100%;
+        }
     }
 }
