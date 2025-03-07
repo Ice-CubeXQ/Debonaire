@@ -1,18 +1,22 @@
-// Заголовки, загальні БЕМ блоки та інше...
+// Заголовки, общие БЕМ блоки и другое...
 .title {
     color: #fff;
+    transition: all 0.3s;
     font-family: "Lexend Deca";
-    @include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
+    @include adaptiveValue("font-size", 40, 24, 0, 1026, 320);
     font-style: normal;
-    line-height: 1.33;
+    line-height: 1.2; /* 48/40 */
     letter-spacing: toRem(-1.5);
+    &--min {
+        @include adaptiveValue("font-size", 30, 22, 0, 1440, 320);
+    }
     &--big {
-        @include adaptiveValue("font-size", 60, 36, 0, 1026, 320);
-        line-height: 1.1;
+        @include adaptiveValue("font-size", 60, 36, 0, 1440, 320);
+        line-height: 1.1; /* 66/60 */
     }
 }
 .text {
-    line-height: 150%; /* 24/16 */
+    line-height: 1.5; /* 24/16 */
 }
 //Кнопка действия
 .book {
